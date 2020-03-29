@@ -8,7 +8,9 @@ VenusCode: Venus rotates clockwise in retrograde rotation, so do this code.
 
 By simply rearranging the way characters forming words and sentences, you can mess up with machines while keep your messages human-readable. It's mainly designed to bypass machine-based censorship such as [Wordfilter](https://en.wikipedia.org/wiki/Wordfilter) in [WeChat](https://citizenlab.ca/2016/11/wechat-china-censorship-one-app-two-systems/) or [Weibo](https://citizenlab.ca/2014/11/tracing-path-censored-weibo-post-compiling-keywords-trigger-automatic-review/). It could also be helpful to reduce on-line tracking, since algorithms can not search or understand your messages in the normal way.
 
-Note: This is different from [Martian language](https://en.wikipedia.org/wiki/Martian_language).
+Note: This is different from [Martian language](https://en.wikipedia.org/wiki/Martian_language) :P
+
+Note: It's currently designed for logograms like Chinese or Japanese characters. I am coming up a solution for languages using phonogram like english.
 
 ## implementation
 Currently available in Java and JS. This is more of a coding practice for me so I would try to implement it using other languages.
