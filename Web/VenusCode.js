@@ -1,4 +1,3 @@
-
 document.getElementById("textarea_in").addEventListener("input", encode);
 document.getElementById("maxColumn_in").addEventListener("input", encode);
 
@@ -64,12 +63,7 @@ function venusCode(inputString,maxColumn){
 				charIndex=i+j*rawCount;
 				if (charIndex<inputString.length) {
 					theChar=inputString.charAt(charIndex);
-					if(theChar.charCodeAt(0) < 127){
-						//outputString+=" ";
-						theChar=String.fromCharCode(theChar.charCodeAt(0)+65248);
-					}
-					//additional space for half-full not working for WeChat;
-					//convert them to fullwidth;
+					theChar=processHalfFull(theChar);
 					outputString+=theChar;
 					outputString+="  ";
 				}
@@ -78,4 +72,21 @@ function venusCode(inputString,maxColumn){
 		}
 
 		return outputString;
+}
+
+function processHalfFull (theChar) {
+	//additional space for half-full not working for WeChat;
+	//convert them to fullwidth;
+	if(theChar.charCodeAt(0) < 127){
+		//outputString+=" ";
+		theChar=String.fromCharCode(theChar.charCodeAt(0)+65248);
+	}
+	//processing Brackets
+	var horizontalBrackets="‘’“”（）【】〈〉《》［］｛｝"
+	var verticalBrackets="﹁﹂﹃﹄︵︶︻︼︿﹀︽︾﹇﹈︷︸"
+	var bracketIndex=horizontalBrackets.indexOf(theChar);
+	if (bracketIndex!=-1) {
+		theChar=verticalBrackets.charAt(bracketIndex);
+	};
+	return theChar;
 }
